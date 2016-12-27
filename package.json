@@ -1,6 +1,6 @@
 {
   "name": "ensure-rethinkdb",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Creates rethinkdb initial databases and tables using observables (rxjs) ensuring they exist and can be used in the application.",
   "main": "dist/index.js",
   "repository":  {
