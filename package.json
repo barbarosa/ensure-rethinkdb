@@ -1,9 +1,21 @@
 {
   "name": "ensure-rethinkdb",
   "version": "1.0.0",
-  "description": "Creates rethinkdb databases and tables using observables (rxjs) ensuring they exist and can be used in the application.",
+  "description": "Creates rethinkdb initial databases and tables using observables (rxjs) ensuring they exist and can be used in the application.",
   "main": "dist/index.js",
-  "repository": "https://github.com/barbarosa/ensure-rethinkdb",
+  "repository":  {
+    "type": "git",
+    "url": "https://github.com/barbarosa/ensure-rethinkdb"
+  },
+  "bugs": {
+    "url": "https://github.com/barbarosa/ensure-rethinkdb/issues"
+  },
+   "keywords": [
+    "rethinkdb",
+    "ensure",
+    "observable",
+    "rxjs"
+  ],
   "author": "Andrei Preda",
   "license": "MIT",
   "dependencies": {
