@@ -63,6 +63,8 @@ export async function startServer() {
   } catch (err) {
     // handleError(err)
   }
+  // later
+  startServer();
 ```  
 
 2. Subscription (returns an Observable)
