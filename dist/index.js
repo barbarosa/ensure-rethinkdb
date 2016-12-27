@@ -2,7 +2,6 @@
 const r = require("rethinkdb");
 const ramda_1 = require("ramda");
 const rxjs_1 = require("rxjs");
-;
 class EnsureRethinkDB {
     constructor(dbStructure, config, connectTimeAllowed = 1000) {
         this.dbStructure = dbStructure;

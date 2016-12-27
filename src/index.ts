@@ -2,11 +2,6 @@ import * as r from 'rethinkdb';
 import { difference, intersection, keys, toPairs, head, last, add, length, path } from 'ramda';
 import { Observable } from 'rxjs';
 
-interface IConfig {
-  host: string;
-  port: number;
-};
-
 // example db structure
 interface IDBStruc {
   dbName1?: {
@@ -22,7 +17,7 @@ interface IDBStruc {
 export default class EnsureRethinkDB {
   constructor(
     private dbStructure: IDBStruc,
-    private config: IConfig,
+    private config: r.ConnectionOptions,
     private connectTimeAllowed = 1000
   ) {}
 
@@ -109,13 +104,11 @@ export default class EnsureRethinkDB {
       .mergeMap(this.createDb$, this.createTables$)
       .switch();
 
-
   private existingDbs$ = (dbList: string[]) =>
     Observable
       .from(dbList)
       .mergeMap(this.tableList$, this.tablesCheck$)
       .switch();
-
 
   private compareStructure$ = (existingDbs: string[]) => {
     const ensureDbs = keys(this.dbStructure);
@@ -141,7 +134,7 @@ export default class EnsureRethinkDB {
 /*
  * For async usage without any observables required
  */
-export const ensureAsync = (dbStructure: IDBStruc, config: IConfig) => {
+export const ensureAsync = (dbStructure: IDBStruc, config: r.ConnectionOptions) => {
 
   const ensureRethink = new EnsureRethinkDB(dbStructure, config);
 
